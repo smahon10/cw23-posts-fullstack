@@ -1,5 +1,5 @@
-import Feed from "@/components/feed";
-import Sidebar from "@/components/sidebar";
+import Feed from "@/components/layout/feed";
+import Sidebar from "@/components/layout/sidebar";
 import { Toaster } from "@/components/ui/toaster";
 
 function App() {

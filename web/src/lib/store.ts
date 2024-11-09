@@ -38,3 +38,28 @@ export const $comments = atom<CommentType[]>([]);
 export function setComments(comments: CommentType[]) {
   $comments.set(comments);
 }
+
+export function addComment(comment: CommentType) {
+  $comments.set([comment, ...$comments.get()]);
+}
+
+export function removeComment(id: string) {
+  $comments.set($comments.get().filter((comment) => comment.id !== id));
+}
+
+export function updateCommentContent(id: string, content: string) {
+  $comments.set(
+    $comments.get().map((comment) => {
+      if (comment.id === id) {
+        return { ...comment, content: content };
+      }
+      return comment;
+    }),
+  );
+}
+
+export const $showAddComment = atom(false);
+
+export function toggleAddComment() {
+  $showAddComment.set(!$showAddComment.get());
+}
